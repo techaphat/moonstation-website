@@ -1,9 +1,31 @@
 ---
 import Container from "./Container.astro";
+
+import NavLinks from "../data/NavLinks";
 ---
 
-<footer>
+<footer class="text-sm">
     <Container>
-        <h1>Footer</h1>
+        <div class="flex sm:flex-row flex-col justify-between items-center gap-y-4">
+            <nav>
+                <ul class="flex gap-x-6 flex-wrap justify-center">
+                    {
+                        NavLinks.map((link) => (
+                            <li>
+                                <a class="uppercase" href={ link.path }>{ link.name }</a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+
+            <ul>
+                <h1 class="uppercase">social</h1>
+            </ul>
+        </div>
+
+        <div class="text-center mt-4">
+            <small class="text-xs">© 2024 Site</small>
+        </div>
     </Container>
 </footer>
